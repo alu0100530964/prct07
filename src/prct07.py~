@@ -1,0 +1,29 @@
+#!/user/bin/python
+#! encoding: UTF-8
+
+import sys
+import math
+import modulo
+
+# Programa principal
+tupla = (10,20,30,40)
+# Dependiendo del hardware. En este ordenador el numero maximo sería este: 10000000000
+# Se pueden dar numeros en notacion cientifica.
+# Cuando haces un python modulo.py el ordenador coje el ejecutable de dentro del modulo y lo convierte a .pyc
+lista =[]
+for i in tupla:
+    valor_pi = modulo.calcular_Pi (i)
+    lista.append (valor_pi)
+# print lista lo ponemos para comprobar que se crea los valores aproximados de Pi. Con los valores de la tupla
+
+PI35 = []
+for i in tupla:
+  PI35.append (modulo.PI35DT)
+  
+dif35 = []
+for i  in range (len (tupla)):
+  dif35.append (abs(PI35[i] - lista [i]))
+
+print "i\tPI35DT\t\tlista i\t\tPI35DT - lista i"
+for i in range (len (tupla)):
+  print "%d\t%1.10f\t%1.10f\t%1.10f" %(i+1,PI35[i],lista[i],dif35[i])
